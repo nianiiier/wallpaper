@@ -1,7 +1,11 @@
 body {
     margin: 0;  /*外边距设置为0*/
-    padding: 50px;  /*内边距设置为10*/ 
+    padding: 25px;  /*内边距设置为10*/ 
     font-family: Arial, sans-serif;
+    background-image: url("008.png");
+    background-size: cover;  /* 使背景图像覆盖整个页面 */
+    background-repeat: no-repeat;  /* 背景图像不重复 */
+    background-attachment: fixed;  /* 背景图像固定，滚动时不移动 */
     
 }
 main {
@@ -9,7 +13,6 @@ main {
 }
 .card {
     /* 设置卡片的背景颜色为白色 */
-    background-color: #fff;
     background: rgba(255, 255, 255, 0.731);
     backdrop-filter: blur(5px);
 
@@ -17,21 +20,21 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
     /* 设置卡片的边框圆角 */
-    border-radius: 100px;
+    border-radius: 50px;
     margin: 10px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 
     text-align: center;
-    color:#974d4d;
+    color:#3a274c;
 }
 .card h1{
-    font-size: 50px;
+    font-size: 40px;
 }
 .card p{
-    font-size: 40px;
+    font-size: 30px;
 }
 .card:hover {
     /* 增加阴影效果，使卡片在页面上浮起 */
@@ -39,15 +42,10 @@ main {
     /* 降低背景的透明度 */
     background: rgba(255, 255, 255, 0.85);
 }
-.bgvideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%; 
-    min-height: 100%;
-    width: auto; 
-    height: auto; 
-    z-index: -1000;
-    background: no-repeat;
-    background-size: cover;
+.current-day {
+    background-color: rgba(105, 82, 162, 0.63);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
 }

@@ -16,12 +16,13 @@ document.addEventListener("DOMContentLoaded", function () {
         currentTimeElement.textContent = timeString;
     }
 
-// 每秒更新一次时间
-setInterval(updateClock, 1000);
+    // 每秒更新一次时间
+    setInterval(updateClock, 1000);
 
-// 页面加载时立即更新一次时间
-updateClock();
+    // 页面加载时立即更新一次时间
+    updateClock();
 });
+
 class Calendar {
   constructor() {
     const d = new Date();
@@ -48,7 +49,7 @@ class Calendar {
       html += '<tr>';
       for (let i = 0; i < 7; i++) {
         if (date.getDay() === i && date.getMonth() === this.currentMonth) {
-          html += date.getDate() === this.today ? `<td><b>${date.getDate()}</b></td>` : `<td>${date.getDate()}</td>`;
+          html += date.getDate() === this.today ? `<td class="current-day"><b>${date.getDate()}<b></td>` : `<td>${date.getDate()}</td>`;
           date.setDate(date.getDate() + 1);
         } else {
           html += '<td></td>';
