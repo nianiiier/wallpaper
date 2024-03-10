@@ -1,0 +1,53 @@
+body {
+    margin: 0;  /*外边距设置为0*/
+    padding: 50px;  /*内边距设置为10*/ 
+    font-family: Arial, sans-serif;
+    
+}
+main {
+    text-align: center;
+}
+.card {
+    /* 设置卡片的背景颜色为白色 */
+    background-color: #fff;
+    background: rgba(255, 255, 255, 0.731);
+    backdrop-filter: blur(5px);
+
+    /* 添加阴影效果，使卡片在页面上浮起 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    /* 设置卡片的边框圆角 */
+    border-radius: 100px;
+    margin: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    text-align: center;
+    color:#974d4d;
+}
+.card h1{
+    font-size: 50px;
+}
+.card p{
+    font-size: 40px;
+}
+.card:hover {
+    /* 增加阴影效果，使卡片在页面上浮起 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* 降低背景的透明度 */
+    background: rgba(255, 255, 255, 0.85);
+}
+.bgvideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto; 
+    z-index: -1000;
+    background: no-repeat;
+    background-size: cover;
+}
