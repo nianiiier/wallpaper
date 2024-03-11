@@ -29,6 +29,9 @@ class Calendar {
     this.currentMonth = d.getMonth();
     this.currentYear = d.getFullYear();
     this.today = d.getDate();
+
+    // 每小时更新一次日历
+    setInterval(() => this.showCurrent(), 3600000);
   }
 
   showCurrent() {
@@ -62,17 +65,3 @@ class Calendar {
     calendarDiv.innerHTML = html;
   }
 }
-
-// 创建一个新的Calendar实例
-const calendar = new Calendar();
-
-// 定义一个函数来更新日历
-function updateCalendar() {
-  calendar.showCurrent();
-}
-
-// 立即显示当前的日历
-updateCalendar();
-
-// 设置一个间隔，每小时（3600000毫秒）更新一次日历
-setInterval(updateCalendar, 3600000);
