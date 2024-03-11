@@ -63,5 +63,16 @@ class Calendar {
   }
 }
 
+// 创建一个新的Calendar实例
 const calendar = new Calendar();
-calendar.showCurrent();
+
+// 定义一个函数来更新日历
+function updateCalendar() {
+  calendar.showCurrent();
+}
+
+// 立即显示当前的日历
+updateCalendar();
+
+// 设置一个间隔，每小时（3600000毫秒）更新一次日历
+setInterval(updateCalendar, 3600000);
