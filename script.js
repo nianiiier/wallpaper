@@ -18,20 +18,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 每秒更新一次时间
     setInterval(updateClock, 1000);
-
     // 页面加载时立即更新一次时间
     updateClock();
+
+    let calendar = new Calendar();
+    calendar.update();
+    calendar.showCurrent();
+    setInterval(() => {
+      calendar.update();
+      calendar.showCurrent();
+    }, 3600000); // 3600000毫秒等于1小时
 });
+
+
 
 class Calendar {
   constructor() {
+    this.update();
+  }
+  update() {
     const d = new Date();
     this.currentMonth = d.getMonth();
     this.currentYear = d.getFullYear();
     this.today = d.getDate();
-
-    // 每小时更新一次日历
-    setInterval(() => this.showCurrent(), 3600000);
   }
 
   showCurrent() {
