@@ -24,13 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let calendar = new Calendar();
     calendar.update();
     calendar.showCurrent();
+    
     setInterval(() => {
       calendar.update();
       calendar.showCurrent();
     }, 3600000); // 3600000毫秒等于1小时
 });
-
-
 
 class Calendar {
   constructor() {
