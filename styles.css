@@ -49,3 +49,22 @@ main {
     height: 20px;
     border-radius: 50%;
 }
+.progress-container {
+    width: 80%;
+    margin: 30px;
+    background-color: #105312;
+    border-radius: 15px;
+  }
+  
+  .progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: #4CAF50;
+    border-radius: 15px;
+    transition: width 1s ease-in-out;
+  }
+  
+  .progress-label {
+    margin-top: 10px;
+    font-size: 25px;
+  }

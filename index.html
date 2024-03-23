@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles.css">
     <title>MyaPlay</title>
 </head>
+
 <body>
     <div class="card">
             <h1>Welcome To Nianiii's Space</h2>
@@ -16,6 +17,15 @@
         </div>
         <div class="card" style="font-size:27px; ">
             <div id="calendar" style="padding-left: 30px; text-align: center; background-color: rgba(240, 248, 255, 0); box-shadow: 0 4px 8px rgba(0, 0, 0, 0);"></div>
+        </div>
+        <div class="card">
+            <div class="progress-label">
+                今天已经度过了：
+                <span id="progressLabel">0%</span>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
         </div>
         <div class="card">
             <p>
@@ -37,11 +47,7 @@
                 13th Gen Intel(R) Core(TM) i9-13980HX
             </p>
         </div>
-        <div class="card">
-            <p>
-                32768MB RAM
-            </p>
-        </div>
+
     </main>
     <main style="width:100%; float:left; ">
         <div style="position:fixed; bottom: 0;"></div>

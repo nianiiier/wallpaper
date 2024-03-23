@@ -1,39 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // 获取显示时间的元素
-    const currentTimeElement = document.getElementById("currentTime");
+  //时间显示
+  let clock = new Clock();
+  setInterval(() => {
+    clock.updateClock()
+  }, 1000);
 
-    // 更新时间函数
-    function updateClock() {
-        const now = new Date(); // 获取当前时间
-        const hours = now.getHours().toString().padStart(2, '0'); // 小时
-        const minutes = now.getMinutes().toString().padStart(2, '0'); // 分钟
-        const seconds = now.getSeconds().toString().padStart(2, '0'); // 秒钟
-
-        // 构建时间字符串
-        const timeString = `${hours}:${minutes}:${seconds}`;
-
-        // 更新显示时间的元素内容
-        currentTimeElement.textContent = timeString;
-    }
-
-    // 每秒更新一次时间
-    setInterval(updateClock, 1000);
-    // 页面加载时立即更新一次时间
-    updateClock();
-
-    let calendar = new Calendar();
+  // 日历
+  let calendar = new Calendar();
+  setInterval(() => {
     calendar.update();
     calendar.showCurrent();
-    
-    setInterval(() => {
-      calendar.update();
-      calendar.showCurrent();
-    }, 3600000); // 3600000毫秒等于1小时
+  }, 3600000); // 1小时
+
+  // 进度条
+  let progressBar = new CuteProgressBar();
+  setInterval(() => {
+    progressBar.updateProgress()
+    progressBar.init()
+  }, 1000);
+
 });
 
+// 日历
 class Calendar {
   constructor() {
     this.update();
+    this.showCurrent();
   }
   update() {
     const d = new Date();
@@ -71,5 +63,78 @@ class Calendar {
 
     html += '</table>';
     calendarDiv.innerHTML = html;
+  }
+}
+
+// 进度条
+class CuteProgressBar {
+  constructor() {
+    //获取进度条和进度文本元素
+    this.progressBar = document.getElementById("progressBar");
+    this.progressLabel = document.getElementById("progressLabel");
+    // 更新进度
+    this.updateProgress();
+  }
+
+  init() {
+    // 监听鼠标移入事件
+    this.progressBar.addEventListener('mouseenter', () => {
+      this.resetProgress();
+
+    });
+
+    // 监听鼠标移动事件
+    this.progressBar.addEventListener('mousemove', () => {
+    this.updateProgress();
+  });
+  }
+
+  // 这个函数由于updateProgress调用
+  getTodayProgress() {
+    const now = new Date();
+    // 获取今天开始的时间
+    const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const millisecondsInDay = 24 * 60 * 60 * 1000;
+    const progress = (now - startOfDay) / millisecondsInDay * 100;
+
+    // 返回进度，最大为100%
+    return Math.min(progress, 100);
+  }
+
+  updateProgress() {
+    // 获取今天已经过去的时间的百分比
+    const progress = this.getTodayProgress();
+
+    //更新进度条和进度文本
+    this.progressBar.style.width = progress + "%";
+    this.progressLabel.textContent = progress.toFixed(2) + "%";
+  }
+
+  // 重置进度条
+  resetProgress() {
+    this.progressBar.style.width = '0%';
+  }
+}
+
+// 时间显示
+class Clock {
+  constructor() {
+      // 获取显示时间的元素
+      this.currentTimeElement = document.getElementById("currentTime");
+      this.updateClock();
+  }
+
+  // 更新时间函数
+  updateClock() {
+      const now = new Date(); // 获取当前时间
+      const hours = now.getHours().toString().padStart(2, '0'); // 小时
+      const minutes = now.getMinutes().toString().padStart(2, '0'); // 分钟
+      const seconds = now.getSeconds().toString().padStart(2, '0'); // 秒钟
+
+      // 构建时间字符串
+      const timeString = `${hours}:${minutes}:${seconds}`;
+
+      // 更新显示时间的元素内容
+      this.currentTimeElement.textContent = timeString;
   }
 }
