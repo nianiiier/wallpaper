@@ -52,14 +52,14 @@ main {
 .progress-container {
     width: 80%;
     margin: 30px;
-    background-color: #105312;
+    background-color: rgb(96, 74, 152);
     border-radius: 15px;
   }
   
   .progress-bar {
     width: 0%;
     height: 20px;
-    background-color: #4CAF50;
+    background-color:  rgb(170, 149, 223);
     border-radius: 15px;
     transition: width 1s ease-in-out;
   }
